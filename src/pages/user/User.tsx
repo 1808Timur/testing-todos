@@ -14,7 +14,7 @@ import { ITodo, IUser } from "../../models";
 const User = () => {
   const [user, setUser] = useState<IUser>();
   const [todos, setTodos] = useState<ITodo[]>([]);
-  const [remoteTodoId, setRemoteTodoId] = useState<number>();
+  const [remoteTodoId, setRemoteTodoId] = useState<number | null>(null);
   const { id } = useParams();
   const [modal, setModal] = useState<boolean>(false);
 
@@ -52,9 +52,9 @@ const User = () => {
       }
     };
 
-    const currentTodoIndex = getCurrentTodoIndex(todoIndex);
+    const currentTodoIndex: number = getCurrentTodoIndex(todoIndex);
 
-    const updatedTodos = [...todos];
+    const updatedTodos: ITodo[] = [...todos];
 
     updatedTodos[currentTodoIndex].completed = currentTodo.completed
       ? false
@@ -68,7 +68,6 @@ const User = () => {
       try {
         const response = await fetch(`${usersApi}/${id}`);
         setUser(await response.json());
-        console.log(user);
       } catch (error) {
         console.log(error);
       }

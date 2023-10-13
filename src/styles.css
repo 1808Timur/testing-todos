@@ -99,8 +99,18 @@ button {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: #aba9fc;
   border-radius: 5px;
+  box-shadow: #aba9fc 0px 1px 1px;
+}
+
+.user__todos-item--active {
+  background-color: #aaa9fc4b;
+  transition: 1s background-color;
+}
+
+.user__todos-item--disabled {
+  background-color: #aba9fc;
+  transition: 1s background-color;
 }
 
 .user__todos-button {

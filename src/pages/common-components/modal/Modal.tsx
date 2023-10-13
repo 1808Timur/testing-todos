@@ -6,7 +6,7 @@ const Modal = ({
   todosData,
   modalData,
 }: {
-  todosData: { todos: ITodo[]; setTodos: Function; remoteTodoId: number };
+  todosData: { todos: ITodo[]; setTodos: Function; remoteTodoId: number | null; };
   modalData: { modal: boolean; setModal: Function };
 }) => {
   const { todos, setTodos, remoteTodoId } = todosData;
@@ -19,7 +19,7 @@ const Modal = ({
     setModal(false);
   };
 
-  const removeTodo = (remoteId: number) => () => {
+  const removeTodo = (remoteId: number | null) => () => {
     const newTodos = todos.filter(({ id }) => id !== remoteId);
     setTodos(newTodos);
     hideModal();

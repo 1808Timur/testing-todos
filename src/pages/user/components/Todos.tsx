@@ -14,7 +14,7 @@ const Todos = ({
     <h3 className="user__todos-title">TODOS</h3>
     <ul className="user__todos-list">
       {currentTodos.map((todo, i) => (
-        <div className="user__todos-item" key={i}>
+        <div className={`user__todos-item ${todo.completed ? 'user__todos-item--active' : 'user__todos-item--disabled'}`} key={todo.id}>
           <li>
             <input
               onChange={toggleCheck(todo, i)}

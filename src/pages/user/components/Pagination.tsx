@@ -9,7 +9,7 @@ const Pagination = ({
   totalTodos: number;
   paginate: Function;
 }) => {
-  const pageNumbers = [];
+  const pageNumbers: number[] = [];
 
   for (let i = 1; i <= Math.ceil(totalTodos / todosPerPage); i += 1) {
     pageNumbers.push(i);
@@ -25,7 +25,7 @@ const Pagination = ({
             href="#"
             key={number}
           >
-            <li className="user__pag" key={number}>
+            <li>
               {number}
             </li>
           </a>
